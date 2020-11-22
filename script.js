@@ -29,42 +29,64 @@ const restaurant = {
     console.log(
         `Oreder recieved! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`
     );
+  },
+
+  orderPasta: function(ing1, ing2, ing3) {
+    console.log(`Here is you pasta with ${ing1}, ${ing2} and ${ing3}`);
   }
 };
 
+// restaurant.orderDelivery({
+//     time: '22:30',
+//     address: 'Street Name 1',
+//     mainIndex: 2,
+//     starterIndex: 2
+// });
 
-restaurant.orderDelivery({
-    time: '22:30',
-    address: 'Street Name 1',
-    mainIndex: 2,
-    starterIndex: 2
-});
+// spread operator
+
+const arr = [7, 8, 8];
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+console.log(...newArr);
+
+const newMenu = [...restaurant.mainMenu, "Gnocci"];
+console.log(newMenu);
+// copy array
+const mainMenuCopy = [...restaurant.mainMenu]
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+const ingredients = [prompt('Let\'s make pasta! Ingredient 1?'), prompt('Let\'s make pasta! Ingredient 2?'), prompt('Let\'s make pasta! Ingredient 3?')];
+console.log(ingredients);
+
+restaurant.orderPasta(...ingredients);
+
 
 // object destucturing
-const {name, openingHours, categories} = restaurant;
-console.log(name, openingHours, categories);
+// const {name, openingHours, categories} = restaurant;
+// console.log(name, openingHours, categories);
 
-const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
-console.log(restaurantName, hours, tags);
+// const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
+// console.log(restaurantName, hours, tags);
 
-// mutating variables
-let a = 111;
-let b = 222;
-const obj = {a: 23, b: 7, c: 14};
+// // mutating variables
+// let a = 111;
+// let b = 222;
+// const obj = {a: 23, b: 7, c: 14};
 
-// ({a, b} = obj);
-console.log(a, b);
+// // ({a, b} = obj);
+// console.log(a, b);
 
-// nested objects
-const {
-    fri: {
-        open: o, 
-        close: c
-    }
-} = openingHours;
-console.log(o, c);
-
-
+// // nested objects
+// const {
+//     fri: {
+//         open: o, 
+//         close: c
+//     }
+// } = openingHours;
+// console.log(o, c);
 
 
 
